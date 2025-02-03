@@ -13,6 +13,7 @@ class Book
     private String title;
     private int pages;
     private String refNumber;
+    private int borrowed;
 
     /**
      * Set the author and title fields when this object
@@ -24,6 +25,24 @@ class Book
         title = bookTitle;
         pages = bookPages;
         refNumber="";
+        borrowed=0;
+    }
+    
+    
+    /**
+     * increments the count for the number of times a book has been borrowed.
+     */
+    public void setBorrowed()
+    {
+        ++borrowed;
+    }
+    
+    /*
+     * Returns the number of times a book has been borrowed
+     */
+    public int getBorrowed()
+    {
+        return borrowed;
     }
     
     /**
@@ -31,7 +50,14 @@ class Book
      */
     public void setRefNumber(String ref)
     {
-        refNumber=ref;
+        if(ref.length()>=3)
+        {
+            refNumber=ref;
+        }
+        else
+        {
+            System.out.println("Error: reference number is too short, no change");
+        }
     }
     
     /**
@@ -87,15 +113,16 @@ class Book
      */
     public void printDetails()
     {
-        System.out.println("Title:"+ title + "\n Author: " + author + "\n Pages: " + pages);
+        System.out.println("Title:"+ title + "\n Author: " + author + "\n Pages: " + pages + 
+        "\n # of times checked out: " + borrowed);
         
-        if (refNumber.length()<=0)
+        if (refNumber.length()>=0)
         {
-            System.out.println("Reference Number: ZZZ");
+            System.out.println("Reference Number: "+refNumber);
         }
         else
         {
-            System.out.println("Reference Number: "+refNumber);
+            System.out.println("Reference Number: ZZZ");
         }
     }
 
