@@ -64,7 +64,13 @@ class Book
         System.out.println("Author:"+ author);
     }
     
-    
+    /**
+     *  print the name, number of pages, and the author of the book.
+     */
+    public void printDetails()
+    {
+        System.out.println("Title:"+ title + "\n Author: " + author + "\n Pages: " + pages);
+    }
 
 
 }
